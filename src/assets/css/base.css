@@ -1,4 +1,4 @@
-@import "./normalize";
+@import "./normalize.css";
 
 :root {
   --color-text: #666;
@@ -15,13 +15,13 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
-  user-select: none ; /* 禁止用户鼠标在页面上选中文字图片等*/;
+/* body {
+  user-select: none ; 禁止用户鼠标在页面上选中文字图片等;
   background-color: var(--color-background);
   color: var(--color-text);
   -webkit-tap-highlight-color: transparent;
   width: 100vh;
-}
+} */
 a {
   color: var(--color-text);
   text-decoration: none;
