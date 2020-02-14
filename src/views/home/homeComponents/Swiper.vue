@@ -2,7 +2,7 @@
   <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
       <van-swipe-item class="swiper-item" v-for="(item, index) in images" :key="index">
         <a :href="item.link">
-          <img v-lazy="item.image">
+          <img :src="item.image" @load="imageLoad">
         </a>
       </van-swipe-item>
   </van-swipe>
@@ -20,7 +20,11 @@ export default {
     }
   },
   name: "Swiper",
-  
+  methods: {
+    imageLoad() {
+      this.$emit('swiperImageLoad')
+    }
+  }
 };
 </script>
 

@@ -38,16 +38,21 @@ export default {
       this.$emit('scroll', position)
     })
     // 3、监听上拉事件
+    // 4、监听滚到底部
     this.scroll.on('pullingUp', () => {
       this.$emit('pullingUp')
     })
+    // this.scroll.refresh()
   },
   methods: {
     scrollTo(x, y, time=500) {
-      this.scroll.scrollTo(x, y, time)
+      this.scroll && this.scroll.scrollTo(x, y, time)
     },
     finishPullUp() {
-      this.scroll.finishPullUp()
+      this.scroll && this.scroll.finishPullUp()
+    },
+    refresh() {
+      this.scroll && this.scroll.refresh()
     }
   }
 }
