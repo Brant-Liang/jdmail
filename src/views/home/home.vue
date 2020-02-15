@@ -60,7 +60,8 @@ export default {
       curIndex: 0,
       isShowBackTop: false,
       tabOffsetTop: 0,
-      isTabFixed: false
+      isTabFixed: false,
+      saveY: 0
     };
   },
   components: {
@@ -111,6 +112,7 @@ export default {
       this.isShowBackTop = position.y < -1000;
       //  决定tab是否吸顶
       this.isTabFixed = -position.y > this.tabOffsetTop;
+      
     },
     loadMore() {
       // console.log('加载更多');
@@ -139,6 +141,17 @@ export default {
         this.$refs.scroll.finishPullUp();
       });
     }
+  },
+  destroyed() {
+    console.log('home destory');
+  },
+  activated() {
+    this.$refs.scroll.scrollTo(0, this.saveY)
+    this.$refs.scroll.refresh()
+  },
+  deactivated() {
+    // this.$refs.scroll.
+    this.saveY = this.$refs.scroll.scrollY()
   }
 };
 </script>
