@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style scoped>
-.swiper-item img{
+.detail-swiper img{
   height: 400px;
   width: 375px;
 }

@@ -16,11 +16,12 @@
   box-sizing: border-box;
 }
 /* body {
-  user-select: none ; 禁止用户鼠标在页面上选中文字图片等;
+  user-select: none; /* 禁止用户鼠标在页面上选中文字图片等; 
   background-color: var(--color-background);
   color: var(--color-text);
   -webkit-tap-highlight-color: transparent;
   width: 100vh;
+  font-family: STXingkai;
 } */
 a {
   color: var(--color-text);

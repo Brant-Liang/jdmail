@@ -1,14 +1,28 @@
 <template>
   <div id="detail">
     <detail-nav-bar/>
-    <detail-swiper :top-images="topImages"/>
+    <better-scroll class="content">
+      <detail-swiper :top-images="topImages"/>
+      <detail-base-info :goods="goods"/>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+      <li>9</li>
+      <li>10</li>
+    </better-scroll>
   </div>
 </template>
 
 <script>
 import DetailNavBar from './detailComponents/DetailNabBar'
 import DetailSwiper from './detailComponents/DeatilSwiper'
-
+import DetailBaseInfo from './detailComponents/DetailBaseInfo'
+import BetterScroll from 'components/common/betterScroll/BetterScroll'
 import { getDetailData, Goods } from 'network/detail.js'
 export default {
   name: 'Detail',
@@ -21,7 +35,9 @@ export default {
   },
   components: {
     DetailNavBar,
-    DetailSwiper
+    DetailSwiper,
+    DetailBaseInfo,
+    BetterScroll
   },
   created() {
     // 保存iid
@@ -45,4 +61,14 @@ export default {
 </script>
 
 <style>
+#detail {
+  height: 100vh;
+  position: relative;
+  background-color: #ffffff;
+  z-index: 1;
+}
+.content {
+  background-color: #ffffff;
+  height: calc(100% - 44px);
+}
 </style>
