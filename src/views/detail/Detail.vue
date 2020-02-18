@@ -4,16 +4,7 @@
     <better-scroll class="content">
       <detail-swiper :top-images="topImages"/>
       <detail-base-info :goods="goods"/>
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
-      <li>4</li>
-      <li>5</li>
-      <li>6</li>
-      <li>7</li>
-      <li>8</li>
-      <li>9</li>
-      <li>10</li>
+      <detail-shop-info :shop="shopInfo"/>
     </better-scroll>
   </div>
 </template>
@@ -22,6 +13,7 @@
 import DetailNavBar from './detailComponents/DetailNabBar'
 import DetailSwiper from './detailComponents/DeatilSwiper'
 import DetailBaseInfo from './detailComponents/DetailBaseInfo'
+import DetailShopInfo from './detailComponents/DetailShopInfo'
 import BetterScroll from 'components/common/betterScroll/BetterScroll'
 import { getDetailData, Goods } from 'network/detail.js'
 export default {
@@ -30,13 +22,15 @@ export default {
     return {
       iid: null,
       topImages : [],
-      goods: null
+      goods: null,
+      shopInfo: null
     };
   },
   components: {
     DetailNavBar,
     DetailSwiper,
     DetailBaseInfo,
+    DetailShopInfo,
     BetterScroll
   },
   created() {
@@ -54,6 +48,8 @@ export default {
         this.topImages = res.result.itemInfo.topImages
         // 2、 获取商品信息
         this.goods = new Goods(data.itemInfo, data.columns, data.shopInfo.services)
+        // 3、获取店铺信息
+        this.shopInfo = data.shopInfo
       })
     }
   }
