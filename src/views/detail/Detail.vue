@@ -6,6 +6,7 @@
       <detail-base-info :goods="goods"/>
       <detail-shop-info :shop="shopInfo"/>
       <detail-goods-info :detail-info="detailInfo" />
+      <detail-params-info :detail-params="itemParams"></detail-params-info>
     </better-scroll>
   </div>
 </template>
@@ -16,6 +17,7 @@ import DetailSwiper from './detailComponents/DeatilSwiper'
 import DetailBaseInfo from './detailComponents/DetailBaseInfo'
 import DetailShopInfo from './detailComponents/DetailShopInfo'
 import DetailGoodsInfo from './detailComponents/DetailGoodsInfo'
+import DetailParamsInfo from './detailComponents/DetaolParamsInfo'
 import BetterScroll from 'components/common/betterScroll/BetterScroll'
 import { getDetailData, Goods } from 'network/detail.js'
 export default {
@@ -24,9 +26,10 @@ export default {
     return {
       iid: null,
       topImages : [],
-      goods: null,
-      shopInfo: null,
-      detailInfo: null
+      goods: {},
+      shopInfo: {},
+      detailInfo: {},
+      itemParams: {}
     };
   },
   components: {
@@ -35,7 +38,8 @@ export default {
     DetailBaseInfo,
     DetailShopInfo,
     DetailGoodsInfo,
-    BetterScroll
+    DetailParamsInfo,
+    BetterScroll,
   },
   created() {
     // 保存iid
@@ -56,6 +60,8 @@ export default {
         this.shopInfo = data.shopInfo
         // 4、取出详情信息
         this.detailInfo = data.detailInfo
+
+        this.itemParams = data.itemParams
       })
     }
   }
